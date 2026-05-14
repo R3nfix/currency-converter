@@ -2,27 +2,53 @@
 
 const amountInput = document.querySelector('[data-js-amount]');
 const amountResult = document.querySelector('[data-js-result]');
-const fromCurrency = document.querySelector('[data-js-from-currency]');
-const toCurrency = document.querySelector('[data-js-to-currency]');
-const btnConvert = document.querySelector('[data-js-btn-conversion]');
+const fromCurrencyEl = document.querySelector('[data-js-from-currency]');
+const toCurrencyEl = document.querySelector('[data-js-to-currency]');
+const btnConvertEl = document.querySelector('[data-js-btn-conversion]');
+const errorMessage = document.querySelector('[data-js-error-message]');
+const errorRequest = document.querySelector('[data-js-error-request-message]');
 
-const apiKey = '57028cc4d2e785c68d5f5601';
-const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurrency.value}`;
+function showValidationError() {
+    errorMessage.classList.add('currency-converter__error');
+    errorMessage.style.display = 'block';
+
+    amountInput.classList.add('is-invalid');
+}
+
+function closeValidatonError() {
+    errorMessage.classList.remove('currency-converter__error');
+    errorMessage.style.display = 'none';
+
+    amountInput.classList.remove('is-invalid');
+}
 
 async function convertCurrency() {
     const amountIn = +amountInput.value;
-    const fromCur = fromCurrency.value;
-    const toCur = toCurrency.value;
+    const fromCurEl = fromCurrencyEl.value;
+    const toCurEl = toCurrencyEl.value;
 
-    const response = await fetch(apiUrl);
+    const apiKey = '57028cc4d2e785c68d5f5601';
+    const apiUrl = `https://v6.exchangerate-api.com/v6/${apiKey}/latest/${fromCurEl}`;
 
-    const data = await response.json();
+    if (!amountIn) {
+        showValidationError();
 
-    const rate = data.conversion_rates[toCur];
+        return;
+    } else if (amountIn) {
+        closeValidatonError();
+    }
 
-    const convertedResult = amountIn * rate;
+    try {
+        const response = await fetch(apiUrl);
+        const data = await response.json();
+        const rate = data.conversion_rates[toCurEl];
+        const convertedResult = amountIn * rate;
 
-    amountResult.value = `${convertedResult.toFixed(2)}`;
+        amountResult.value = `${convertedResult.toFixed(2)}`;
+    } catch (event) {
+        errorRequest.classList.remove('hide');
+        // console.error(error);
+    }
 }
 
-btnConvert.addEventListener('click', convertCurrency);
+btnConvertEl.addEventListener('click', convertCurrency);

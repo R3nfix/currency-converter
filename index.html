@@ -1,20 +1,21 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Currency Converter</title>
     <link rel="stylesheet" href="./styles.css">
     <script src="./script.js" defer></script>
 </head>
 <body>
-    <div class="currency__converter container">
-        <h2 class="currency__converter-header">
+    <div class="currency-converter container">
+        <h2 class="currency-converter__header">
             Конвертер валют
         </h2>
 
-        <div class="container-input-first">
-            <input type="number" data-js-amount placeholder="Введите сумму...">
+        <div class="currency-converter__input-container">
+            <div class="currency-converter__error hide" data-js-error-message>Пожалуйста, введите сумму</div>
+            <input type="number" class="" data-js-amount placeholder="Введите сумму...">
 
             <select name="fromCurrency" data-js-from-currency>
                 <option value="USD">USD — Доллар США</option>
@@ -28,7 +29,7 @@
 
         </div>
 
-        <div class="container-input-second">
+        <div class="currency-converter__input-container">
             <input type="number" data-js-result placeholder="Результат конвертации" readonly>
     
             <select name="toCurrency" data-js-to-currency>
@@ -40,9 +41,11 @@
                 <option value="CNY">CNY — Китайский юань</option>
                 <option value="KZT">KZT — Казахстанский тенге</option>
             </select>
+
+            <div class="currency-converter__error-request hide" data-js-error-request-message>Не удалось обработать ваш запрос. Попробуйте ещё раз</div>
         </div>
 
-        <button type="button" class="btn__conversion" data-js-btn-conversion>Конвертировать</button>
+        <button type="button" class="btn-conversion" data-js-btn-conversion>Конвертировать</button>
     </div>
 </body>
 </html>
