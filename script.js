@@ -1,4 +1,4 @@
-'use strict'
+'use strict';
 
 const amountInput = document.querySelector('[data-js-amount]');
 const amountResult = document.querySelector('[data-js-result]');
@@ -47,7 +47,6 @@ async function convertCurrency() {
         amountResult.value = `${convertedResult.toFixed(2)}`;
     } catch (event) {
         errorRequest.classList.remove('hide');
-        // console.error(error);
     }
 }
 

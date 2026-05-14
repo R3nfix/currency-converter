@@ -15,7 +15,7 @@
 
         <div class="currency-converter__input-container">
             <div class="currency-converter__error hide" data-js-error-message>Пожалуйста, введите сумму</div>
-            <input type="number" class="" data-js-amount placeholder="Введите сумму...">
+            <input type="number" class="" data-js-amount placeholder="Введите сумму..." aria-label="Введите сумму...">
 
             <select name="fromCurrency" data-js-from-currency>
                 <option value="USD">USD — Доллар США</option>
@@ -30,7 +30,7 @@
         </div>
 
         <div class="currency-converter__input-container">
-            <input type="number" data-js-result placeholder="Результат конвертации" readonly>
+            <input type="number" data-js-result placeholder="Результат конвертации" aria-label="Результат конвертации" readonly>
     
             <select name="toCurrency" data-js-to-currency>
                 <option value="USD">USD — Доллар США</option>
