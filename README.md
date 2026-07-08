@@ -1,6 +1,8 @@
 # Currency Converter
 
-<img src="./img/screenshot.png" width=500 height=auto>
+<div align="center">
+  <img src="./img/screenshot.png" width=500 height=auto>
+</div>
 
 ### [EN]
 
@@ -22,7 +24,7 @@ and this project is a typical example where such use is permitted.
 
 ### Project Link
 
-[Currency Converter (GitHub Pages)](https://r3nfix.github.io/currency-converter/)
+[Currency Converter (GitHub Pages)](https://antlevchenko.github.io/currency-converter/)
 
 ### [RU]
 
@@ -44,5 +46,5 @@ and this project is a typical example where such use is permitted.
 
 ### Ссылка на проект
 
-[Currency Converter (GitHub Pages)](https://r3nfix.github.io/currency-converter/)
+[Currency Converter (GitHub Pages)](https://antlevchenko.github.io/currency-converter/)
 
